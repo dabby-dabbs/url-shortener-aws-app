@@ -1,0 +1,103 @@
+{% extends 'base.html' %} {% block title %}URL Shortener - Home{% endblock %} {%
+block styles %}
+<style>
+    .container {
+        margin-top: 30px;
+    }
+
+    .jumbotron {
+        background-color: #f8f9fa;
+        padding: 30px;
+    }
+
+    .short-url {
+        background-color: #e9ecef;
+        padding: 10px;
+        border-radius: 5px;
+        word-wrap: break-word;
+    }
+
+    .url-form {
+        margin-top: 20px;
+    }
+
+    .url-form label {
+        font-weight: bold;
+    }
+
+    .corner-links {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+</style>
+
+
+
+{% endblock %}
+{% block content %}
+<div class="container custom-container">
+    <div class="jumbotron text-center">
+        {% if 'user_id' in session %}
+        <h1 class="display-4">Welcome, {{ session['username'] }}!</h1>
+        <p class="lead lead-custom">Your Short URL:</p>
+        <a href="{{ short_url }}" class="short-url">{{ short_url }}</a>
+        {% else %}
+        <p class="lead">You must be logged in to access this page.</p>
+        {% endif %}
+
+        <form method="POST" action="{{ url_for('index') }}" class="url-form">
+            <div class="form-group">
+                <label for="url">URL:</label>
+                <input type="text" id="url" name="url" class="form-control" placeholder="Enter URL" required>
+            </div>
+
+            <!-- New Feature: QR Code Description -->
+            <div class="form-group">
+                <label for="image-description">QR Code Description:</label>
+                <input type="text" id="image-description" name="image-description" class="form-control"
+                    placeholder="Enter Image Description" required>
+            </div>
+
+            <!-- New Feature: QR Code Display -->
+            <div class="form-group">
+                {% if image_path %}
+                <img src="{{ image_path }}" alt="Image" class="img-fluid" style="width: 512px; height: 512px;">
+
+                <!-- New Feature: Social Media Sharing -->
+                <div class="social-media-sharing">
+                    <p>Share on:</p>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ short_url }}&quote=🌟 I created this beautiful QR code using this site. Check it out: {{ short_url }}"
+                        target="_blank" class="btn btn-primary">Facebook</a>
+                    <a href="https://twitter.com/intent/tweet?url={{ short_url }}&text=🌟 I created this beautiful QR code using this site. Check it out: {{ short_url }}"
+                        target="_blank" class="btn btn-primary">Twitter</a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ short_url }}&title=🌟 I created this beautiful QR code using this site. Check it out: {{ short_url }}"
+                        target="_blank" class="btn btn-primary">LinkedIn</a>
+                    <!-- Add more social media sharing buttons as needed -->
+                </div>
+
+                {% else %}
+                <img src="https://team13.s3.eu-north-1.amazonaws.com/Loading_Animation.gif" alt="Placeholder Image"
+                    class="img-fluid" style="width: 512px; height: 512px;">
+                {% endif %}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Shorten URL</button>
+        </form>
+
+    </div>
+</div>
+
+<!-- New Feature: User Authentication Links -->
+<div class="corner-links">
+    {% if 'user_id' in session %}
+    <a href="{{ url_for('logout') }}" class="btn btn-primary">Logout</a>
+    {% else %}
+    <a href="{{ url_for('login') }}" class="btn btn-primary">Login</a>
+    {% endif %}
+</div>
+
+<!-- Additional Features: User Registration, User Dashboard, URL Analytics, Customized Short URLs, URL Expiration, API Integration, Password-Protected URLs, URL Categorization -->
+<!-- Add appropriate HTML elements and links for these features -->
+
+{% endblock %}

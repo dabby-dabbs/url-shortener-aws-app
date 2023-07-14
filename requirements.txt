@@ -1,0 +1,7 @@
+pymysql
+hashids
+flask
+plotly
+gradio
+gradio_client
+boto3
