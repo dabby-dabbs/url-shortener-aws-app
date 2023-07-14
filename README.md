@@ -47,6 +47,8 @@ This application allows you to generate QR codes and track clicks.
 
 `python app.py`
 
+<img width="481" alt="image" src="https://github.com/dabby-dabbs/url-shortener-aws-app/assets/93348569/e1bdfaaa-9918-4e52-9826-44a5b6a9c447">
+
 # Usage
 Open your web browser and access the application at http://localhost:5000.
 Click on the "Register" link to create a new account.
