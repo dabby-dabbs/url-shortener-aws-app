@@ -4,6 +4,9 @@
 
 This is a Flask application that generates QR codes from URLs and provides a short URL for easy sharing. Users can register an account, log in, and track the number of clicks on their generated QR codes.
 
+<img width="1118" alt="Screenshot 2023-07-14 at 10 19 26 AM" src="https://github.com/dabby-dabbs/url-shortener-aws-app/assets/93348569/5e343fec-528a-4bc8-a970-01e44ea99f89">
+
+
 ## Prerequisites
 
 Before running the application, make sure you have the following:
@@ -47,7 +50,13 @@ This application allows you to generate QR codes and track clicks.
 
 `python app.py`
 
+<img width="478" alt="image" src="https://github.com/dabby-dabbs/url-shortener-aws-app/assets/93348569/5eb2009d-9202-4007-89b4-b0699988d0ec">
+
+<img width="480" alt="image" src="https://github.com/dabby-dabbs/url-shortener-aws-app/assets/93348569/60ff0b1e-2320-496f-a9f8-d8e37a72dd04">
+
 <img width="481" alt="image" src="https://github.com/dabby-dabbs/url-shortener-aws-app/assets/93348569/e1bdfaaa-9918-4e52-9826-44a5b6a9c447">
+
+
 
 # Usage
 Open your web browser and access the application at http://localhost:5000.
